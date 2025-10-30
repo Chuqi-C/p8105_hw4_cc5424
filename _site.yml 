@@ -1,12 +1,12 @@
-name: "p8105_hw4_cc5424"
+name: "Chuqi Chen Homework 4"
 output_dir: "docs"
 navbar:
   title: "Chuqi Chen"
   left:
     - text: "Home"
       href: index.html
-    - text: "Instacart Dashboard"
-      href: instacart_dashboard.html
+    - text: "Dashboard"
+      href: problem2.html
   right:
     - icon: fa-github
       href: "https://github.com/Chuqi-C"
