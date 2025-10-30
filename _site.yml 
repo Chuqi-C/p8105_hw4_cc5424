@@ -1,0 +1,19 @@
+name: "p8105_hw4_cc5424"
+output_dir: "docs"
+navbar:
+  title: "Chuqi Chen"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Instacart Dashboard"
+      href: instacart_dashboard.html
+  right:
+    - icon: fa-github
+      href: "https://github.com/Chuqi-C"
+    - icon: fa-envelope
+      href: "mailto:cc5424@cumc.columbia.edu"
+    - icon: fa-linkedin
+      href: "https://www.linkedin.com/in/chuqi-chen-36b686386/"
+output:
+  html_document:
+    theme: flatly

@@ -1,0 +1,95 @@
+---
+title: "Instacart Dashboard"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: scroll
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(plotly)
+library(dplyr)
+library(p8105.datasets)
+
+# Load and sample data
+data("instacart")
+set.seed(123)
+instacart_sample = instacart |> sample_n(20000)
+
+```
+
+## Column {data-width=600}
+
+### Scatter Plot: Products per Order vs Reordered Items
+```{r}
+scatter = instacart_sample |>
+  group_by(order_id) |>
+  summarise(
+    n_products = n(),
+    total_reordered = sum(reordered)
+  )
+
+plot_ly(scatter, x = ~n_products, y = ~total_reordered, type = "scatter", mode = "markers") |>
+  layout(
+    title = "Products per Order vs Reordered Items",
+    xaxis = list(title = "Number of Products"),
+    yaxis = list(title = "Total Reordered Items")
+  )
+```
+
+### Line Plot: Orders by Hour of Day
+```{r}
+orders_by_hour = instacart_sample |>
+  group_by(order_hour_of_day) |>
+  summarise(n_orders = n())
+
+plot_ly(orders_by_hour, x = ~order_hour_of_day, y = ~n_orders, type = 'scatter', mode = 'lines+markers') |>
+  layout(
+    title = "Orders by Hour of Day",
+    xaxis = list(title = "Hour"),
+    yaxis = list(title = "Number of Orders")
+  )
+```
+
+## Column {data-width=400}
+
+### Bar Plot: Top 10 Aisles
+```{r}
+top_aisles = instacart_sample |>
+  group_by(aisle_id) |>
+  summarise(n_products = n()) |>
+  arrange(desc(n_products)) |>
+  slice(1:10)
+
+plot_ly(top_aisles, x = ~reorder(as.factor(aisle_id), n_products), y = ~n_products, type = 'bar') |>
+  layout(
+    title = "Top 10 Aisles",
+    xaxis = list(title = "Aisle"),
+    yaxis = list(title = "Number of Products")
+  )
+```
+
+### Summary Table of Aisles
+```{r}
+summary_tbl = instacart_sample |>
+  group_by(aisle_id) |>
+  summarise(
+    total_products = n(),
+    total_reorders = sum(reordered),
+    mean_reorder_rate = mean(reordered, na.rm = TRUE)
+  ) |>
+  arrange(desc(total_products))
+
+plot_ly(
+  type = "table",
+  header = list(values = c("Aisle", "Total Products", "Total Reorders", "Mean Reorder Rate")),
+  cells = list(values = rbind(
+    summary_tbl$aisle_id,
+    summary_tbl$total_products,
+    summary_tbl$total_reorders,
+    round(summary_tbl$mean_reorder_rate, 2)
+  ))
+)
+```

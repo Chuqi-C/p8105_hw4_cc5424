@@ -1,9 +1,10 @@
 ---
-title: "p8105_hw4_cc5424"
-author: "ChuqiChen"
+title: "problem1"
+author: "Chuqi Chen"
 date: "2025-10-29"
 output: html_document
 ---
+
 ```{r}
 # Problem 1 content: Introduction
 cat("
