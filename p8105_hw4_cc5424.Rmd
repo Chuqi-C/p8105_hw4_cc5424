@@ -1,0 +1,49 @@
+---
+title: "p8105_hw4_cc5424"
+author: "ChuqiChen"
+date: "2025-10-29"
+output: html_document
+---
+```{r}
+# Problem 1 content: Introduction
+cat("
+# Welcome 👋
+
+I am **Chuqi Chen**, currently studying at **Columbia University**.  
+
+This site was created as part of my reproducible homework project.
+
+- 📧 [Email Me](mailto:cc5424@cumc.columbia.edu)
+- 💼 [LinkedIn](https://www.linkedin.com/in/chuqi-chen-36b686386/)
+- 🧠 [GitHub](https://github.com/Chuqi-C)
+")
+```
+
+# About Me
+```{r}
+# Problem 1 content: Resume / Experience
+cat("
+# Education
+
+- M.S. in Biostatistics — Columbia University (2027)
+- B.S. in Economics — Central University of Finance and Economics (2025)
+
+# Professional Experience
+
+- **Research Assistant**, R Project
+  - Time Series Modeling with Applications in Economics and Public Health
+  - Research Project Member, Advisor: Prof. Peter Kempthorne Jul 2024 – Oct 2024
+  - Utilized forecast and tseries package to gather and format gender unemployment data
+  - Designed ARIMA modeling process, selected parameters (p,d,q,P,D,Q), evaluated residuals with Ljung-Box test
+  - Selected optimal model based on AIC/BIC and forecasted unemployment trends
+
+- **Intern**, Bytedance
+  - Accountant Intern at Chinese Center for Revenue Systems and Accounts Aug 2024 – Dec 2024
+  - Handled collections, revenue recognition, and reconciliation
+  - Assisted R&D department with data testing and system debugging
+
+# Skills
+
+- R Studio, Python, Stata, MySQL, EViews, SPSS
+")
+```
