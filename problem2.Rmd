@@ -1,5 +1,5 @@
 ---
-title: "Instacart Dashboard"
+title: "problem2"
 output:
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -7,8 +7,7 @@ output:
 runtime: shiny
 ---
 
-
-```{r setup, include=FALSE}
+```{r}
 library(flexdashboard)
 library(plotly)
 library(dplyr)
